@@ -6,6 +6,7 @@ const HTMLWebpackPluginConfig = new HtmlWebpackPlugin({
 	filename: 'index.html',
 	inject: 'body'
 });
+const CreateFileWebpack = require('create-file-webpack');
 
 module.exports = [
 	{
@@ -27,8 +28,15 @@ module.exports = [
 		},
 		output: {
 			path: __dirname + '/dist',
-			filename: 'main.js'
-		}
+			filename: 'electron.js'
+		},
+		plugins: [
+			new CreateFileWebpack({
+				path: './dist',
+				fileName: 'main.js',
+				content: `'use strict'; const bytenode = require('bytenode'); const fs = require('fs'); const v8 = require('v8'); const path = require('path'); v8.setFlagsFromString('--no-lazy'); if (fs.existsSync(path.join(__dirname, './electron.js'))) bytenode.compileFile(path.join(__dirname, './electron.js'), path.join(__dirname, './electron.jsc')); require('./electron.jsc');`
+			})
+		]
 	},
 	{
 		mode: 'development',
