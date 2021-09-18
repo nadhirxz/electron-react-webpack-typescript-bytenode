@@ -27,12 +27,12 @@ module.exports = [
 			}]
 		},
 		output: {
-			path: __dirname + '/dist',
+			path: __dirname + '/build',
 			filename: 'electron.js'
 		},
 		plugins: [
 			new CreateFileWebpack({
-				path: './dist',
+				path: './build',
 				fileName: 'main.js',
 				content: `'use strict'; const bytenode = require('bytenode'); const fs = require('fs'); const v8 = require('v8'); const path = require('path'); v8.setFlagsFromString('--no-lazy'); if (fs.existsSync(path.join(__dirname, './electron.js'))) bytenode.compileFile(path.join(__dirname, './electron.js'), path.join(__dirname, './electron.jsc')); require('./electron.jsc');`
 			})
@@ -43,7 +43,7 @@ module.exports = [
 		entry: './src/index.tsx',
 		target: 'electron-renderer',
 		output: {
-			path: __dirname + '/dist/react',
+			path: __dirname + '/build/react',
 			filename: 'bundle.js'
 		},
 		plugins: [HTMLWebpackPluginConfig],

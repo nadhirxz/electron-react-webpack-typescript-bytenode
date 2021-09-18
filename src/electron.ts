@@ -13,7 +13,7 @@ const createWindow = () => {
 			contextIsolation: false,
 		}
 	});
-	win.loadURL(isDev ? 'http://localhost:3000' : `file://${app.getAppPath()}/index.html`,);
+	win.loadURL(isDev ? 'http://localhost:3000' : `file://${__dirname}/build/react/index.html`);
 }
 
 app.on('ready', createWindow);
