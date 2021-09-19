@@ -57,7 +57,7 @@ module.exports = [
 					parallel: false
 				}
 			}),
-			new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['**/*', '!electron.js', ...(!production && ['!electron.js.map'])] }),
+			new CleanWebpackPlugin({ cleanOnceBeforeBuildPatterns: ['**/*', '!electron.js', ...(!production ? [] : ['!electron.js.map'])] }),
 		],
 		optimization
 	},
