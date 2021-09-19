@@ -18,6 +18,9 @@
 		],
 		"directories": {
 			"buildResources": "assets"
+		},
+		"win": {
+			"icon": "assets/icon.ico"
 		}
 	},
 	"author": "",
