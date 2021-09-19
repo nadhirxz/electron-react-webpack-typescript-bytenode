@@ -4,9 +4,9 @@
 	"description": "",
 	"scripts": {
 		"build": "set NODE_ENV=production&&webpack",
-		"react:dev": "webpack serve --mode=development",
+		"react:dev": "webpack serve --config webpack.react.config.js --mode=development",
 		"electron:dev": "nodemon",
-		"dev": "webpack && concurrently --kill-others \"npm run react:dev\" \"npm run electron:dev\"",
+		"dev": "concurrently --kill-others \"npm run react:dev\" \"npm run electron:dev\"",
 		"start": "npm run build && electron build/main.js",
 		"package-win": "npm run build && electron-builder build --win -c.extraMetadata.main=build/main.js --publish never",
 		"package-win-portable": "npm run build && electron-builder build --win portable -c.extraMetadata.main=build/main.js --publish never"
