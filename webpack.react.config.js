@@ -24,7 +24,7 @@ module.exports = {
 			directory: path.join(__dirname, 'build/react'),
 		},
 		compress: true,
-		port: process.env.PORT
+		port: process.env.PORT || 3000,
 	},
 	resolve: {
 		alias: {
