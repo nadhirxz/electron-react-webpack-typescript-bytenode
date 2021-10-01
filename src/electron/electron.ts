@@ -13,6 +13,7 @@ const createWindow = () => {
 			contextIsolation: false,
 		}
 	});
+	win.on('closed', () => app.quit());
 	win.loadURL(isDev ? `http://localhost:${process.env.PORT || 3000}` : `file://${__dirname}/react/index.html`);
 }
 
