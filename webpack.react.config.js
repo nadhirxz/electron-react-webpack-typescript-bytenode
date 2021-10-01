@@ -25,10 +25,12 @@ module.exports = {
 		},
 		compress: true,
 		port: process.env.PORT || 3000,
+		hot: true,
 	},
 	resolve: {
 		alias: {
-			['@']: path.resolve(__dirname, 'src')
+			['@']: path.resolve(__dirname, 'src'),
+			'react-dom': '@hot-loader/react-dom',
 		},
 		extensions: ['.tsx', '.ts', '.js'],
 	},
